@@ -14,15 +14,23 @@ HttpResponse response = http.send(request);
 if(response.getStatusCode() == 200) {
 
     // Deserialize the JSON string into collections of primitive data types.
+    
     Map<String, Object> results = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
     
     // Cast the values in the 'animals' key as a list
+    
    Map<String, Object> animals = (Map<String, Object>) results.get('args');
+   
     List<Object> n =new List<Object>();
+        
     n.add(animals.values());
+        
     System.debug('Received the following animals:');
+        
     for(Object animal: n) {
+        
         System.debug(animal);
+        
     }
 }
 
